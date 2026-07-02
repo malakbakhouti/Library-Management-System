@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.LoginController"
+      prefWidth="900" prefHeight="600"
+      stylesheets="@../styles/styles.css">
+
+    <!-- ================== LEFT IMAGE ================== -->
+    <VBox prefWidth="450">
+        <ImageView fitWidth="450" fitHeight="600" preserveRatio="false">
+            <image>
+                <Image url="@../images/emsi-bg.jpg"/>
+            </image>
+        </ImageView>
+    </VBox>
+
+    <!-- ================== RIGHT FORM ================== -->
+    <VBox prefWidth="450" alignment="CENTER" spacing="20"
+          style="-fx-background-color: #f8f9fa;">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
+
+        <Label text="Bibliothèque EMSI" styleClass="login-title"/>
+        <Label text="Connexion sécurisée" styleClass="login-subtitle"/>
+
+        <VBox spacing="12">
+
+            <!-- ROLE -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Rôle :" prefWidth="120"/>
+                <ComboBox fx:id="roleComboBox"
+                          promptText="Choisissez votre rôle"
+                          prefWidth="250"/>
+            </HBox>
+
+            <!-- EMAIL -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Email :" prefWidth="120"/>
+                <TextField fx:id="emailField"
+                           promptText="exemple@emsi.com"
+                           prefWidth="250"/>
+            </HBox>
+
+            <!-- PASSWORD -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Mot de passe :" prefWidth="120"/>
+                <PasswordField fx:id="passwordField"
+                               promptText="Mot de passe"
+                               prefWidth="250"/>
+            </HBox>
+
+           <HBox alignment="CENTER">
+    <padding>
+        <Insets top="20" right="0" bottom="0" left="0"/>
+    </padding>
+   <Button text="Se connecter"
+        prefWidth="220"
+        style="-fx-background-color: #1abc9c; -fx-text-fill: white;"
+        onAction="#onLogin"/>
+   
+
+</HBox>
+           
+            
+           
+           
+
+        </VBox>
+    </VBox>
+
+</HBox>

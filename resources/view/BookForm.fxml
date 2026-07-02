@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" 
+            fx:controller="controller.BookFormController" 
+            stylesheets="@../styles/styles.css" 
+            prefWidth="520" 
+            prefHeight="480">
+    
+    <children>
+        <VBox spacing="12" alignment="TOP_LEFT" layoutX="16" layoutY="16" 
+              prefWidth="488" prefHeight="448" 
+              AnchorPane.leftAnchor="16" 
+              AnchorPane.topAnchor="16"
+              AnchorPane.rightAnchor="16"
+              AnchorPane.bottomAnchor="16">
+            
+            <Label text="Formulaire Livre" styleClass="form-title" 
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Titre:" prefWidth="110"/>
+                <TextField fx:id="tfTitle" HBox.hgrow="ALWAYS" promptText="Titre du livre"/>
+            </HBox>
+            
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Auteur:" prefWidth="110"/>
+                <TextField fx:id="tfAuthor" HBox.hgrow="ALWAYS" promptText="Nom de l'auteur"/>
+            </HBox>
+            
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Éditeur:" prefWidth="110"/>
+                <TextField fx:id="tfPublisher" HBox.hgrow="ALWAYS" promptText="Maison d'édition"/>
+            </HBox>
+            
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Année:" prefWidth="110"/>
+                <TextField fx:id="tfYear" prefWidth="120" promptText="2024"/>
+                <Label text="Quantité:" prefWidth="90"/>
+                <TextField fx:id="tfQty" prefWidth="80" promptText="1"/>
+            </HBox>
+            
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Genre:" prefWidth="110"/>
+                <TextField fx:id="tfGenre" HBox.hgrow="ALWAYS" promptText="Fiction, Science, etc."/>
+            </HBox>
+            
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Couverture:" prefWidth="110"/>
+                <TextField fx:id="tfCover" HBox.hgrow="ALWAYS" promptText="chemin/vers/image.jpg"/>
+            </HBox>
+            
+            <Region VBox.vgrow="ALWAYS"/>
+            
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Label fx:id="lblMsg" text="" styleClass="msg" HBox.hgrow="ALWAYS"
+                       style="-fx-text-fill: red;"/>
+                <Button fx:id="btnCancel" text="Annuler" onAction="#onCancel" styleClass="btn-ghost"
+                        style="-fx-background-color: #e0e0e0; -fx-text-fill: #333; -fx-padding: 8px 20px;"/>
+                <Button fx:id="btnSave" text="Enregistrer" onAction="#onSave" styleClass="btn-primary"
+                        style="-fx-background-color: #48bb78; -fx-text-fill: white; -fx-padding: 8px 20px;"/>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

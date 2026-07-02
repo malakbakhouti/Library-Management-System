@@ -1,0 +1,127 @@
+/* ===========================
+   Base
+=========================== */
+.root {
+    -fx-font-family: "Segoe UI", Roboto, Arial;
+    -fx-background-color: #f4f6f9;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: linear-gradient(#273444,#1e2a35);
+    -fx-padding: 18;
+}
+.brand {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 0;
+}
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #dbe6ee;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 12;
+    -fx-border-radius: 6;
+}
+.sidebar-btn:hover { -fx-background-color: rgba(255,255,255,0.04); }
+
+/* logout */
+.sidebar-logout {
+    -fx-background-color: #d9534f;
+    -fx-text-fill: white;
+    -fx-padding: 10 12;
+    -fx-border-radius: 6;
+}
+
+/* topbar */
+.topbar {
+    -fx-background-color: white;
+    -fx-padding: 12 18;
+    -fx-border-color: #e6eef6;
+    -fx-border-width: 0 0 1 0;
+    -fx-spacing: 12;
+}
+.stat { -fx-font-size: 13px; -fx-text-fill: #333; -fx-background-color: transparent; }
+
+/* content */
+.content-area {
+    -fx-background-color: white;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8,0,0,2);
+}
+
+/* login */
+.login-title { -fx-font-size: 36px; -fx-text-fill: #2b3b47; -fx-font-weight: 600; }
+.login-subtitle { -fx-font-size: 16px; -fx-text-fill: #7d8b95; }
+
+/* form */
+.form-title { -fx-font-size: 18px; -fx-font-weight: 600; -fx-text-fill: #333; }
+
+/* buttons */
+.button { -fx-cursor: hand; -fx-font-weight: 600; }
+.btn-primary { -fx-background-color: #1abc9c; -fx-text-fill: white; -fx-padding: 8 14; -fx-background-radius: 6; }
+.btn-secondary { -fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 14; -fx-background-radius: 6; }
+.btn-danger { -fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 8 14; -fx-background-radius: 6; }
+.btn-ghost { -fx-background-color: transparent; -fx-text-fill: #4a6477; -fx-border-color: #e6eef6; -fx-border-radius: 6; -fx-padding: 6 10; }
+
+/* messages / labels */
+.msg { -fx-text-fill: #c0392b; -fx-font-size: 12px; }
+
+/* table */
+.table-view { -fx-border-color: transparent; }
+.table-row-cell:filled:selected { -fx-background-color: rgba(26,188,156,0.09); }
+.table-column-header-background { -fx-background-color: linear-gradient(#f8fcfc,#f1f6f7); }
+
+/* ===========================
+   Charts (corrigé)
+=========================== */
+
+/* Fond du chart */
+.chart {
+    -fx-background-color: white;
+    -fx-padding: 10;
+}
+
+/* Titre du chart */
+.chart-title {
+    -fx-text-fill: #111 !important;
+    -fx-font-size: 16px !important;
+    -fx-font-weight: bold !important;
+}
+
+/* Légende */
+.chart-legend {
+    -fx-background-color: transparent;
+}
+.chart-legend-item-text {
+    -fx-fill: #111 !important;   /* ok car c'est du Text */
+    -fx-font-size: 13px !important;
+}
+
+.axis-label { -fx-fill: black !important; -fx-font-size: 13px !important; }
+.axis .tick-label { -fx-fill: black !important; -fx-font-size: 12px !important; }
+
+
+
+
+/* Traits des graduations (tick marks) */
+.axis .tick-mark {
+    -fx-stroke: #94a3b8;
+}
+.axis .axis-line {
+    -fx-stroke: #94a3b8;
+}
+
+/* Labels camembert */
+.chart-pie-label {
+    -fx-fill: #111 !important;
+    -fx-font-size: 11px !important;
+}
+
+/* Grille (optionnel, mais joli) */
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: #e6eef6;
+}

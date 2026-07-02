@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controller.LibrarianDashboardController" 
+            prefWidth="1400.0" 
+            prefHeight="900.0"
+            style="-fx-background-color: #f5f7fa;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" 
+              style="-fx-background-color: white; -fx-padding: 20px 40px; -fx-border-color: #e0e6ed; -fx-border-width: 0 0 1 0;">
+            
+            <!-- Bouton Logout -->
+            <Button text="Logout" onAction="#onLogout" 
+                    style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 24px; -fx-background-radius: 8px; -fx-cursor: hand;"/>
+            
+            <Region HBox.hgrow="ALWAYS"/>
+            
+            <VBox alignment="CENTER">
+                <Label text="Bibliothécaire Dashboard" 
+                       style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
+                <Label fx:id="welcomeLabel" text="Bienvenue" 
+                       style="-fx-font-size: 14px; -fx-text-fill: #718096;"/>
+            </VBox>
+            
+            <Region HBox.hgrow="ALWAYS"/>
+            
+            <Label fx:id="dateLabel" text="21/12/2025" 
+                   style="-fx-font-size: 14px; -fx-text-fill: #2d3748; -fx-padding: 10px 20px; -fx-background-color: #f7fafc; -fx-background-radius: 8px; -fx-border-color: #e0e6ed; -fx-border-width: 1; -fx-border-radius: 8px;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <VBox spacing="30.0" style="-fx-padding: 30px;">
+                
+                <!-- Cartes statistiques -->
+                <HBox spacing="20.0" alignment="CENTER">
+                    
+                    <VBox alignment="TOP_LEFT" spacing="15.0" 
+                          style="-fx-background-color: white; -fx-padding: 25px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-min-width: 280px;">
+                        <Label text="Total Livres" 
+                               style="-fx-font-size: 16px; -fx-text-fill: #4a5568;"/>
+                        <Label fx:id="totalBooksLabel" text="0" 
+                               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
+                        <Label text="Dans la bibliothèque" 
+                               style="-fx-font-size: 14px; -fx-text-fill: #48bb78;"/>
+                    </VBox>
+
+                    <VBox alignment="TOP_LEFT" spacing="15.0" 
+                          style="-fx-background-color: white; -fx-padding: 25px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-min-width: 280px;">
+                        <Label text="Emprunts en attente" 
+                               style="-fx-font-size: 16px; -fx-text-fill: #4a5568;"/>
+                        <Label fx:id="pendingLoansLabel" text="0" 
+                               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #f59e0b;"/>
+                        <Label text="À valider" 
+                               style="-fx-font-size: 14px; -fx-text-fill: #f59e0b;"/>
+                    </VBox>
+
+                    <VBox alignment="TOP_LEFT" spacing="15.0" 
+                          style="-fx-background-color: white; -fx-padding: 25px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-min-width: 280px;">
+                        <Label text="Emprunts actifs" 
+                               style="-fx-font-size: 16px; -fx-text-fill: #4a5568;"/>
+                        <Label fx:id="activeLoansLabel" text="0" 
+                               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #48bb78;"/>
+                        <Label text="En cours" 
+                               style="-fx-font-size: 14px; -fx-text-fill: #48bb78;"/>
+                    </VBox>
+
+                    <VBox alignment="TOP_LEFT" spacing="15.0" 
+                          style="-fx-background-color: white; -fx-padding: 25px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-min-width: 280px;">
+                        <Label text="En retard" 
+                               style="-fx-font-size: 16px; -fx-text-fill: #4a5568;"/>
+                        <Label fx:id="overdueLoansLabel" text="0" 
+                               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #e53e3e;"/>
+                        <Label text="Nécessite attention" 
+                               style="-fx-font-size: 14px; -fx-text-fill: #e53e3e;"/>
+                    </VBox>
+                    
+                </HBox>
+
+                <!-- Navigation tabs (STATISTIQUES SUPPRIMÉ) -->
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <Button fx:id="btnOverview" text="Vue d'ensemble" onAction="#onShowOverview"
+                            style="-fx-background-color: white; -fx-text-fill: #2d3748; -fx-font-size: 14px; -fx-padding: 12px 24px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-border-color: #e0e6ed; -fx-border-width: 1; -fx-border-radius: 8px;"/>
+                    
+                    <Button fx:id="btnBooks" text="Gestion des Livres" onAction="#onShowBooks"
+                            style="-fx-background-color: transparent; -fx-text-fill: #718096; -fx-font-size: 14px; -fx-padding: 12px 24px; -fx-background-radius: 8px; -fx-cursor: hand;"/>
+                    
+                    <Button fx:id="btnValidateLoans" text="Valider Emprunts" onAction="#onShowValidateLoans"
+                            style="-fx-background-color: transparent; -fx-text-fill: #718096; -fx-font-size: 14px; -fx-padding: 12px 24px; -fx-background-radius: 8px; -fx-cursor: hand;"/>
+                    
+                    <Button fx:id="btnReturns" text="Gérer Retours" onAction="#onShowReturns"
+                            style="-fx-background-color: transparent; -fx-text-fill: #718096; -fx-font-size: 14px; -fx-padding: 12px 24px; -fx-background-radius: 8px; -fx-cursor: hand;"/>
+                </HBox>
+
+                <!-- Content area -->
+                <StackPane fx:id="contentArea">
+                    
+                    <VBox fx:id="overviewPane" spacing="30.0">
+                        
+                        <VBox spacing="15.0" 
+                              style="-fx-background-color: white; -fx-padding: 30px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <Label text="Bienvenue dans le tableau de bord bibliothécaire" 
+                                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
+                            <Label text="Utilisez les onglets ci-dessus pour naviguer entre les différentes sections" 
+                                   style="-fx-font-size: 16px; -fx-text-fill: #718096;"/>
+                            
+                            <VBox spacing="15.0" style="-fx-padding: 20px 0 0 0;">
+                                
+                                <HBox spacing="15.0" alignment="CENTER_LEFT" 
+                                      style="-fx-background-color: #f7fafc; -fx-padding: 15px; -fx-background-radius: 8px;">
+                                    <Label text="✓ Gestion des livres: Ajouter, modifier et supprimer des livres (CRUD complet)" 
+                                           style="-fx-font-size: 14px; -fx-text-fill: #2d3748;"/>
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT" 
+                                      style="-fx-background-color: #f7fafc; -fx-padding: 15px; -fx-background-radius: 8px;">
+                                    <Label text="✓ Validation des emprunts: Approuver ou rejeter les demandes d'emprunt" 
+                                           style="-fx-font-size: 14px; -fx-text-fill: #2d3748;"/>
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT" 
+                                      style="-fx-background-color: #f7fafc; -fx-padding: 15px; -fx-background-radius: 8px;">
+                                    <Label text="✓ Gestion des retours: Marquer les livres comme retournés et gérer les pénalités" 
+                                           style="-fx-font-size: 14px; -fx-text-fill: #2d3748;"/>
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT" 
+                                      style="-fx-background-color: #f7fafc; -fx-padding: 15px; -fx-background-radius: 8px;">
+                                    <Label text="✓ Vue d'ensemble: Consulter les graphiques et statistiques de la bibliothèque" 
+                                           style="-fx-font-size: 14px; -fx-text-fill: #2d3748;"/>
+                                </HBox>
+                                
+                            </VBox>
+                        </VBox>
+                        
+                    </VBox>
+                    
+                </StackPane>
+                
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

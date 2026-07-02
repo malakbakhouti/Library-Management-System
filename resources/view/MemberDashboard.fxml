@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.MemberDashboardController"
+            prefWidth="1400"
+            prefHeight="900"
+            style="-fx-background-color: #f5f7fa;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20"
+              style="-fx-background-color: white; -fx-padding: 20px 40px; -fx-border-color: #e0e6ed; -fx-border-width: 0 0 1 0;">
+
+            <!-- Bouton Logout -->
+            <Button text="Logout" onAction="#onLogout"
+                    style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 24px; -fx-background-radius: 8px; -fx-cursor: hand;"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <VBox alignment="CENTER">
+                <Label text="Mon Espace Membre"
+                       style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
+                <Label fx:id="welcomeLabel" text="Welcome back"
+                       style="-fx-font-size: 14px; -fx-text-fill: #718096;"/>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="dateLabel" text="21/12/2025"
+                   style="-fx-font-size: 14px; -fx-text-fill: #2d3748; -fx-padding: 10px 20px; -fx-background-color: #f7fafc; -fx-background-radius: 8px; -fx-border-color: #e0e6ed; -fx-border-width: 1; -fx-border-radius: 8px;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <VBox spacing="30" style="-fx-padding: 30px;">
+
+                <!-- Cartes statistiques -->
+                <HBox spacing="20" alignment="CENTER">
+
+                    <VBox alignment="TOP_LEFT" spacing="15"
+                          style="-fx-background-color: white; -fx-padding: 25px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-min-width: 280px;">
+                        <Label text="Emprunts Actifs"
+                               style="-fx-font-size: 16px; -fx-text-fill: #4a5568;"/>
+                        <Label fx:id="activeLoansLabel" text="0"
+                               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #4299e1;"/>
+                        <Label text="Livres en cours"
+                               style="-fx-font-size: 14px; -fx-text-fill: #4299e1;"/>
+                    </VBox>
+
+                    <VBox alignment="TOP_LEFT" spacing="15"
+                          style="-fx-background-color: white; -fx-padding: 25px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-min-width: 280px;">
+                        <Label text="⚠️ En Retard"
+                               style="-fx-font-size: 16px; -fx-text-fill: #4a5568;"/>
+                        <Label fx:id="overdueLoansLabel" text="0"
+                               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #e53e3e;"/>
+                        <Label text="À retourner d'urgence"
+                               style="-fx-font-size: 14px; -fx-text-fill: #e53e3e;"/>
+                    </VBox>
+
+                    <VBox alignment="TOP_LEFT" spacing="15"
+                          style="-fx-background-color: white; -fx-padding: 25px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-min-width: 280px;">
+                        <Label text="Total Emprunté"
+                               style="-fx-font-size: 16px; -fx-text-fill: #4a5568;"/>
+                        <Label fx:id="totalLoansLabel" text="0"
+                               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #48bb78;"/>
+                        <Label text="Tous vos emprunts"
+                               style="-fx-font-size: 14px; -fx-text-fill: #48bb78;"/>
+                    </VBox>
+
+                    <VBox alignment="TOP_LEFT" spacing="15"
+                          style="-fx-background-color: white; -fx-padding: 25px; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-min-width: 280px;">
+                        <Label text="✓ Places Disponibles"
+                               style="-fx-font-size: 16px; -fx-text-fill: #4a5568;"/>
+                        <Label fx:id="availableSlotsLabel" text="5"
+                               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #ed8936;"/>
+                        <Label text="Emprunts possibles"
+                               style="-fx-font-size: 14px; -fx-text-fill: #ed8936;"/>
+                    </VBox>
+
+                </HBox>
+
+                <!-- Navigation tabs -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button fx:id="btnHome" text="Vue d'ensemble" onAction="#onShowHome"
+                            style="-fx-background-color: white; -fx-text-fill: #2d3748; -fx-font-size: 14px; -fx-padding: 12px 24px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-border-color: #e0e6ed; -fx-border-width: 1; -fx-border-radius: 8px;"/>
+
+                    <Button fx:id="btnCatalogue" text="Catalogue" onAction="#onOpenCatalogue"
+                            style="-fx-background-color: transparent; -fx-text-fill: #718096; -fx-font-size: 14px; -fx-padding: 12px 24px; -fx-background-radius: 8px; -fx-cursor: hand;"/>
+
+                    <Button fx:id="btnMyLoans" text="Mes Emprunts" onAction="#onMyLoans"
+                            style="-fx-background-color: transparent; -fx-text-fill: #718096; -fx-font-size: 14px; -fx-padding: 12px 24px; -fx-background-radius: 8px; -fx-cursor: hand;"/>
+
+                    <Button fx:id="btnReturn" text="Retourner un Livre" onAction="#onReturnBook"
+                            style="-fx-background-color: transparent; -fx-text-fill: #718096; -fx-font-size: 14px; -fx-padding: 12px 24px; -fx-background-radius: 8px; -fx-cursor: hand;"/>
+                </HBox>
+
+                <!-- Content area -->
+                <StackPane fx:id="contentArea" style="-fx-min-height: 400px;">
+                    <!-- Le contenu sera chargé dynamiquement -->
+                </StackPane>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

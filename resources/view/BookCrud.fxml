@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.BookCrudController"
+      spacing="12"
+      stylesheets="@../styles/styles.css"
+      prefWidth="800"
+      prefHeight="600">
+
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+
+    <HBox spacing="10">
+        <TextField fx:id="tfSearch" promptText="Rechercher par titre..." HBox.hgrow="ALWAYS"/>
+        <Button text="Rechercher" onAction="#onSearch" styleClass="btn-ghost"/>
+        <Button fx:id="btnAdd" text="Ajouter" onAction="#onAdd" styleClass="btn-primary"/>
+        <Button fx:id="btnEdit" text="Modifier" onAction="#onEdit" styleClass="btn-secondary"/>
+        <Button fx:id="btnDelete" text="Supprimer" onAction="#onDelete" styleClass="btn-danger"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+
+            <!-- ✅ Colonne ID supprimée -->
+
+            <TableColumn text="Titre" prefWidth="240">
+                <cellValueFactory>
+                    <PropertyValueFactory property="title"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn text="Auteur" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="author"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn text="Année" prefWidth="90">
+                <cellValueFactory>
+                    <PropertyValueFactory property="publishYear"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn text="Genre" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="genre"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn text="Qté" prefWidth="70">
+                <cellValueFactory>
+                    <PropertyValueFactory property="quantity"/>
+                </cellValueFactory>
+            </TableColumn>
+
+        </columns>
+    </TableView>
+
+    <Label fx:id="lblMsg" text="" styleClass="msg"/>
+</VBox>

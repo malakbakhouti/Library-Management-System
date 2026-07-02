@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.CatalogueController" spacing="12" stylesheets="@../styles/styles.css" prefWidth="820" prefHeight="600" padding="16">
+    <HBox spacing="10">
+        <TextField fx:id="tfSearch" promptText="Rechercher..." HBox.hgrow="ALWAYS"/>
+        <Button text="Rechercher" onAction="#onSearch" styleClass="btn-ghost"/>
+        <Button fx:id="btnBorrow" text="Emprunter" onAction="#onBorrow" styleClass="btn-primary"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS" columnResizePolicy="CONSTRAINED_RESIZE_POLICY">
+        <columns>
+            <TableColumn text="ID" prefWidth="50"><cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory></TableColumn>
+            <TableColumn text="Titre" prefWidth="260"><cellValueFactory><PropertyValueFactory property="title"/></cellValueFactory></TableColumn>
+            <TableColumn text="Auteur" prefWidth="180"><cellValueFactory><PropertyValueFactory property="author"/></cellValueFactory></TableColumn>
+            <TableColumn text="Année" prefWidth="80"><cellValueFactory><PropertyValueFactory property="publishYear"/></cellValueFactory></TableColumn>
+            <TableColumn text="Genre" prefWidth="120"><cellValueFactory><PropertyValueFactory property="genre"/></cellValueFactory></TableColumn>
+            <TableColumn text="Quantité" prefWidth="80"><cellValueFactory><PropertyValueFactory property="quantity"/></cellValueFactory></TableColumn>
+        </columns>
+    </TableView>
+
+    <Label fx:id="lblMsg" text="" styleClass="msg"/>
+</VBox>
